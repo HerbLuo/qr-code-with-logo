@@ -1,0 +1,39 @@
+{
+  "name": "qr-code-with-logo",
+  "version": "1.0.0",
+  "description": "qrCode with logo (image), 无jQuery依赖, 自由调整大小",
+  "main": "index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "dist:dev": "rollup --watch -c ./rollup.config.js",
+    "dist": "rollup -c ./rollup.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "qr-code",
+    "logo",
+    "image",
+    "qrCode",
+    "size"
+  ],
+  "author": "herbluo",
+  "license": "MIT",
+  "dependencies": {
+    "es6-promisify": "^6.0.0",
+    "qrcode": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-kotlish-also": "^1.0.4",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "rollup": "^0.56.2",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.3",
+    "rollup-plugin-uglify": "^3.0.0",
+    "webpack": "^4.0.0"
+  }
+}

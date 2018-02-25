@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test of QrCodeWithLogo</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script src="../lib/qr-code-with-logo.browser.min.js"></script>
+<script>
+  QrCodeWithLogo.toCanvas({
+    canvas: document.getElementById('canvas'),
+    content: 'http://blog.cloudself.cn/',
+    width: 380,
+    logo: {
+      src: 'http://blog.cloudself.cn/images/avatar.png',
+    }
+  })
+</script>
+</body>
+</html>
