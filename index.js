@@ -5,9 +5,9 @@
  * 2018/1/24 herbluo created
  */
 import QRCode from 'qrcode'
-import { promisify } from 'es6-promisify'
 
-const getCanvasOfLogoQrCodeWithLogo = ({canvas, content, width = 0, logo}) => {
+// main
+const getCanvasOfQrCodeWithLogo = ({canvas, content, width = 0, logo}) => {
   const errorCorrectionLevel = getErrorCorrectionLevel(content)
 
   // 取得绘制出的QrCode的原大小，然后按比例缩放
@@ -34,8 +34,26 @@ const getCanvasOfLogoQrCodeWithLogo = ({canvas, content, width = 0, logo}) => {
     })
 }
 
+/**
+ * copy自
+ * http://blog.csdn.net/bdss58/article/details/67151775
+ */
+const promisify = (f) => {
+  return function () {
+    const args = Array.prototype.slice.call(arguments)
+    return new Promise(function (resolve, reject) {
+      args.push(function (err, result) {
+        if (err) reject(err)
+        else resolve(result)
+      })
+      f.apply(null, args)
+    })
+  }
+}
+
 const toCanvas = promisify(QRCode.toCanvas)
 
+// 对于内容少的QrCode，增大容错率
 const getErrorCorrectionLevel = (content) => {
   if (content.length > 36) {
     return 'M'
@@ -46,28 +64,36 @@ const getErrorCorrectionLevel = (content) => {
   }
 }
 
+// 得到原QrCode的大小，以便缩放得到正确的QrCode大小
 const getOriginWidth = (content, errorCorrectionLevel) => {
   const _canvas = document.createElement('canvas')
   return toCanvas(_canvas, content, {errorCorrectionLevel})
     .then(() => _canvas.width)
 }
 
-const drawLogo = (canvas, {src, width: wh, xy, radius = 0, crossOrigin}) => {
+// 绘制Logo
+const drawLogo = (canvas, {
+  src,
+  bgColor = '#ffffff',
+  crossOrigin,
+  radius = 0,
+
+  width: wh,
+  xy,
+}) => {
   const ctx = canvas.getContext('2d')
 
   return Promise.resolve()
     .then(() => {
-      ctx.fillStyle = '#ffffff'
+      ctx.fillStyle = bgColor
       ctx.fillRect(xy, xy, wh, wh)
     })
-    // 生成一个Image对象
     .then(() => new Image().also(image => {
       if (crossOrigin || radius) {
         image.setAttribute('crossOrigin', 'Anonymous')
       }
       image.src = src
     }))
-    // 将上述Image对象（Logo）绘制到画布上
     .then(image => {
       const sub = wh * 0.28
       const xy2 = xy + (sub / 2)
@@ -107,6 +133,6 @@ const canvasRoundRect = ctx => (x, y, w, h, r) => {
 }
 
 const QrCodeWithLogo = {
-  toCanvas: getCanvasOfLogoQrCodeWithLogo
+  toCanvas: getCanvasOfQrCodeWithLogo
 }
 export default QrCodeWithLogo
