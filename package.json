@@ -1,6 +1,6 @@
 {
   "name": "qr-code-with-logo",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "qrCode with logo (image), 无jQuery依赖, 自由调整大小",
   "main": "lib/index.common.js",
   "module": "lib/index.esm.js",
@@ -27,7 +27,6 @@
   "license": "MIT",
   "dependencies": {
     "es6-promise": "^4.2.4",
-    "es6-promisify": "^6.0.0",
     "qrcode": "^1.2.0"
   },
   "devDependencies": {

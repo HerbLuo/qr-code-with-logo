@@ -6,6 +6,8 @@
  */
 import QRCode from 'qrcode'
 
+const logoSize = 0.2
+
 // main
 const getCanvasOfQrCodeWithLogo = ({canvas, content, width = 0, logo}) => {
   const errorCorrectionLevel = getErrorCorrectionLevel(content)
@@ -28,8 +30,8 @@ const getCanvasOfQrCodeWithLogo = ({canvas, content, width = 0, logo}) => {
       logo = typeof logo === 'string' ? {
         src: logo
       } : logo
-      logo.width = width * 0.2
-      logo.xy = width * 0.4
+      logo.width = width * logoSize
+      logo.xy = width * (1 - logoSize) / 2
       return drawLogo(canvas, logo)
     })
 }

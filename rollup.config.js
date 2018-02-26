@@ -27,7 +27,6 @@ export default [{
       name: 'QrCodeWithLogo',
       globals: {
         'qrcode': 'QRCode',
-        'es6-promisify': 'es6Promisify',
         'QrCodeWithLogo': 'QrCodeWithLogo'
       }
     }
