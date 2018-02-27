@@ -38,7 +38,7 @@ export default [{
     babel()
   ],
 
-  external: ['qrcode', 'es6-promisify']
+  external: ['qrcode']
 }, {
   input: 'index.js',
 
