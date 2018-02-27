@@ -4,14 +4,14 @@
  * change logs:
  * 2018/2/26 herbluo created
  */
-import qrCodeWithLogo from '../../lib'
+import QrCodeWithLogo from '../../lib'
 
 const body = document.getElementsByTagName('body')[0]
 
 // 带 LOGO的
 {
   const canvas = document.createElement('canvas')
-  qrCodeWithLogo.toCanvas({
+  QrCodeWithLogo.toCanvas({
     canvas,
     content: 'http://blog.cloudself.cn',
     width: 380,
@@ -25,7 +25,7 @@ const body = document.getElementsByTagName('body')[0]
 // 带 LOGO的，圆角
 {
   const canvas = document.createElement('canvas')
-  qrCodeWithLogo.toCanvas({
+  QrCodeWithLogo.toCanvas({
     canvas,
     content: 'http://blog.cloudself.cn',
     width: 320,
@@ -40,7 +40,7 @@ const body = document.getElementsByTagName('body')[0]
 // Logo不带白底
 {
   const canvas = document.createElement('canvas')
-  qrCodeWithLogo.toCanvas({
+  QrCodeWithLogo.toCanvas({
     canvas,
     content: 'http://blog.cloudself.cn',
     width: 380,
@@ -56,7 +56,7 @@ const body = document.getElementsByTagName('body')[0]
 // 不带LOGO
 {
   const canvas = document.createElement('canvas')
-  qrCodeWithLogo.toCanvas({
+  QrCodeWithLogo.toCanvas({
     canvas,
     content: 'http://blog.cloudself.cn',
     width: 380,

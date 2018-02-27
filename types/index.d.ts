@@ -2,7 +2,7 @@ interface Payload {
   canvas: Element,
   content: string,
   width: number,
-  logo: object
+  logo: string | object
 }
 
 interface QrCodeWithLogo {
