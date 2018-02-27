@@ -1,7 +1,11 @@
 {
   "name": "qr-code-with-logo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "qrCode with logo (image), 无jQuery依赖, 自由调整大小",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HerbLuo/qr-code-with-logo.git"
+  },
   "main": "lib/index.common.js",
   "module": "lib/index.esm.js",
   "unpkg": "lib/index.js",
