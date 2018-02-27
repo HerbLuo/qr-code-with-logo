@@ -5,6 +5,11 @@
  * 2018/2/26 herbluo created
  */
 import QrCodeWithLogo from '../../lib'
+import Promise from 'es6-promise'
+
+if (typeof window.Promise === 'undefined') {
+  window.Promise = Promise
+}
 
 const body = document.getElementsByTagName('body')[0]
 

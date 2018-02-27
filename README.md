@@ -66,7 +66,7 @@ QrCodeWithLogo.toCanvas({/*args*/})
 其中参数为一个对象，该对象的属性有：
 
 **canvas `Element`**  
-配置dom节点，只允许为<canvas>，不可为<div>等  
+配置dom节点，只允许为`<canvas>`，不可为`<div>`等  
 
 **content `string`**  
 二维码的内容  
@@ -76,15 +76,24 @@ QrCodeWithLogo.toCanvas({/*args*/})
 
 **logo `string | Logo`**  
 可选，可以为字符串（代表src），也可以为对象，其中Logo对象的具体属性有
-
-  **src `string`**  
+*  **src `string`**  
   Logo地址，当存在跨域时，该二维码（canvas）无法 toDataURL，亦无法使用JS转换成 `image`
   
-  **bgColor `string`**,  
+*  **bgColor `string`**,  
   可选，logo的背景色，可以为 'transparent'(透明), 默认为 '#ffffff'
   
-  **crossOrigin `string`**  
+*  **crossOrigin `string`**  
   可选，一般不必修改，默认为 'Anonymous'
   
-  **radius `number`**,  
+*  **radius `number`**,  
   可选，logo的 borderRadius，存在跨域时，Logo会加载失败，默认为 0
+
+四：其它
+* 如果控制台报错 `“Promise”未定义`  
+  在添加如下代码即可
+  ```javascript
+  import Promise from 'es6-promise'
+  if (typeof window.Promise === 'undefined') {
+    window.Promise = Promise
+  }
+  ```
