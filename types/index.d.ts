@@ -1,6 +1,7 @@
 interface Logo {
   src: string;
   logoRadius?: number;
+  logoSize?: number;
   borderRadius?: number;
   borderColor?: string;
   borderSize?: number;
