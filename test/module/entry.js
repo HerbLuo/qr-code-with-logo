@@ -4,7 +4,8 @@
  * change logs:
  * 2018/2/26 herbluo created
  */
-import QrCodeWithLogo from '../../lib'
+import QrCodeWithLogo from '../../lib' // 注意此行不要直接复制，应使用下一行
+// import QrCodeWithLogo from 'qr-code-with-logo'
 import Promise from 'es6-promise'
 
 if (typeof window.Promise === 'undefined') {
@@ -45,7 +46,7 @@ const body = document.getElementsByTagName('body')[0]
       src: 'http://closx-shop.oss-cn-qingdao.aliyuncs.com/images/19a4fefb578960a123aa813b28394cb1828162b8.jpg',
       logoRadius: 14,
       borderRadius: 8,
-      borderColor: '#BBBBBB99',
+      borderColor: '#BBBBBB99', // IE下 只能使用 6位的 RGB
       borderSize: 0.06 // 边框大小 相对二维码的比例
     }
   })
