@@ -27,7 +27,7 @@ const body = document.getElementsByTagName('body')[0]
   body.appendChild(canvas)
 }
 
-// 带 LOGO的，圆角
+// 带 LOGO的，圆角，满配
 {
   const canvas = document.createElement('canvas')
   QrCodeWithLogo.toCanvas({
@@ -36,7 +36,10 @@ const body = document.getElementsByTagName('body')[0]
     width: 320,
     logo: {
       src: 'http://closx-shop.oss-cn-qingdao.aliyuncs.com/images/19a4fefb578960a123aa813b28394cb1828162b8.jpg',
-      radius: 18
+      logoRadius: 14,
+      borderRadius: 8,
+      borderColor: '#bbaba0',
+      borderSize: 0.06 // 边框大小 相对二维码的比例
     }
   })
   body.appendChild(canvas)
@@ -52,7 +55,7 @@ const body = document.getElementsByTagName('body')[0]
     logo: {
       bgColor: 'transparent',
       src: 'http://closx-shop.oss-cn-qingdao.aliyuncs.com/images/19a4fefb578960a123aa813b28394cb1828162b8.jpg',
-      radius: 8
+      logoRadius: 8
     }
   })
   body.appendChild(canvas)

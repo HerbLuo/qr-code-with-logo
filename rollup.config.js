@@ -4,7 +4,7 @@ import commonjs from 'rollup-plugin-commonjs'
 import uglify from 'rollup-plugin-uglify'
 
 const watch = {
-  include: 'index.js',
+  include: 'src/**',
   exclude: 'node_modules/**'
 }
 

@@ -85,8 +85,8 @@ QrCodeWithLogo.toCanvas({/*args*/})
 *  **crossOrigin `string`**  
   可选，一般不必修改，默认为 'Anonymous'
   
-*  **logoRadius `number`**,  
-  可选，logo的 radius，如果配置了它，存在跨域时，Logo可能会加载失败
+*  **radius `number`**,  
+  可选，logo的 borderRadius，存在跨域时，Logo会加载失败，默认为 0
 
 四：其它
 1. 如果控制台报错 `“Promise”未定义`  
