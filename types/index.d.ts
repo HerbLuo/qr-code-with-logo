@@ -27,4 +27,3 @@ interface QrCodeWithLogo {
   toCanvas(config: Config): Promise
 }
 export default QrCodeWithLogo
-
