@@ -12,6 +12,7 @@ ___
 - 支持react
 - 支持IE9+
 - 等
+
 ___
 
 #### 二、使用方法：
@@ -58,7 +59,10 @@ QrCodeWithLogo.toCanvas({
 </script>
 ```
 
+____
+
 三、API  
+
 目前只能将QrCode转换成Canvas输出
 ```javascript
 QrCodeWithLogo.toCanvas({/*args*/})
@@ -72,11 +76,13 @@ Type: `Element`
 
 配置dom节点，只允许为`<canvas>`，不可为`<div>`等  
 
+
 **`content`**  
 
 Type: `string`  
 
 二维码的内容  
+
 
 **`width`**  
 
@@ -84,6 +90,7 @@ Type: `number`
 Default: `0` 
 
 可选，二维码的宽度  
+
 
 **`logo`**  
 
@@ -141,6 +148,7 @@ Type: `string | Logo` `Logo`为js对象
   
   可选，logo的背景色，可以为 'transparent'(透明)   
   
+  
 **`nodeQrCodeOptions`**  
 
 Type: `NodeQrCodeOptions`  `node-qrcode`的参数，[参见](https://github.com/soldair/node-qrcode#qr-code-options)
@@ -168,8 +176,12 @@ Type: `NodeQrCodeOptions`  `node-qrcode`的参数，[参见](https://github.com/
   
   可选，二维码的背景色  
   
+_____
 
 四：其它
+
+_____
+
 1. 如果控制台报错 `“Promise”未定义`  
    添加如下代码即可
    ```javascript
