@@ -1,4 +1,4 @@
-import {promisify} from './promisify'
+import {promisify} from './utils'
 import QRCode from 'qrcode'
 
 /**
@@ -13,22 +13,21 @@ export const renderQrCode = ({
   canvas,
   content,
   width = 0,
+  nodeQrCodeOptions = {}
 }) => {
-  const errorCorrectionLevel = getErrorCorrectionLevel(content)
+  nodeQrCodeOptions.errorCorrectionLevel = getErrorCorrectionLevel(content)
 
-  return getOriginWidth(content, errorCorrectionLevel)
-    .then(_width => toCanvas(canvas, content, {
-      scale: width === 0
-        ? undefined
-        : width / _width * 4,
-      errorCorrectionLevel
-    }))
+  return getOriginWidth(content, nodeQrCodeOptions)
+    .then(_width => {
+      nodeQrCodeOptions.scale = width === 0 ? undefined : width / _width * 4
+      return toCanvas(canvas, content, nodeQrCodeOptions)
+    })
 }
 
 // 得到原QrCode的大小，以便缩放得到正确的QrCode大小
-const getOriginWidth = (content, errorCorrectionLevel) => {
+const getOriginWidth = (content, nodeQrCodeOption) => {
   const _canvas = document.createElement('canvas')
-  return toCanvas(_canvas, content, {errorCorrectionLevel})
+  return toCanvas(_canvas, content, nodeQrCodeOption)
     .then(() => _canvas.width)
 }
 

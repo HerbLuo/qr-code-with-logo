@@ -34,11 +34,18 @@ const body = document.getElementsByTagName('body')[0]
     canvas,
     content: 'http://blog.cloudself.cn',
     width: 320,
+    nodeQrCodeOptions: { // 兼容 node-qrcode
+      margin: 4,
+      color: {
+        dark: '#ff4538',
+        light: '#d2ffdb'
+      }
+    },
     logo: {
       src: 'http://closx-shop.oss-cn-qingdao.aliyuncs.com/images/19a4fefb578960a123aa813b28394cb1828162b8.jpg',
       logoRadius: 14,
       borderRadius: 8,
-      borderColor: '#bbaba0',
+      borderColor: '#BBBBBB99',
       borderSize: 0.06 // 边框大小 相对二维码的比例
     }
   })
