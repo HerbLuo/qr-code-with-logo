@@ -1,12 +1,29 @@
-interface Payload {
-  canvas: Element,
-  content: string,
-  width: number,
-  logo: string | object
+interface Logo {
+  src: string;
+  logoRadius?: number;
+  borderRadius?: number;
+  borderColor?: string;
+  borderSize?: number;
+}
+
+interface NodeQrCodeOptions {
+  margin?: number;
+  color?: {
+    dark?: string;
+    light?: string;
+  }
+}
+
+interface Config {
+  canvas: Element;
+  content: string;
+  width?: number;
+  nodeQrCodeOptions: NodeQrCodeOptions | object;
+  logo?: string | Logo
 }
 
 interface QrCodeWithLogo {
-  toCanvas(Payload)
+  toCanvas(config: Config): Promise
 }
 export default QrCodeWithLogo
 
