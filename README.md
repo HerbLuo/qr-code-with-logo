@@ -61,7 +61,7 @@ QrCodeWithLogo.toCanvas({
 
 ____
 
-三、API  
+#### 三、API  
 
 目前只能将QrCode转换成Canvas输出
 ```javascript
@@ -178,7 +178,7 @@ Type: `NodeQrCodeOptions`  `node-qrcode`的参数，[参见](https://github.com/
   
 _____
 
-四：其它
+#### 四：其它
 
 _____
 
