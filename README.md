@@ -66,6 +66,7 @@ ____
 目前只能将QrCode转换成Canvas输出
 ```javascript
 QrCodeWithLogo.toCanvas({/*args*/})
+  .then(_ => void console.log('success'))
 ```
 
 其中参数为一个对象，该对象的属性有：
