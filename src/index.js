@@ -7,13 +7,28 @@
 import {drawLogo} from './draw-logo'
 import {renderQrCode} from './draw-canvas'
 
-const getCanvasOfQrCodeWithLogo = (payload) => {
-  return renderQrCode(payload)
-    .then(() => payload)
+const getCanvasOfQrCodeWithLogo = (options) => {
+  return renderQrCode(options)
+    .then(() => options)
     .then(drawLogo)
 }
 
+const toImage = (options) => {
+  const canvas = document.createElement('canvas')
+  options.canvas = canvas
+  return getCanvasOfQrCodeWithLogo(options)
+    .then(() => {
+      const {
+        image = new Image(),
+        download
+      } = options
+      image.src = canvas.toDataURL('image/png')
+      console.log(canvas)
+    })
+}
+
 const QrCodeWithLogo = {
-  toCanvas: getCanvasOfQrCodeWithLogo
+  toCanvas: getCanvasOfQrCodeWithLogo,
+  toImage
 }
 export default QrCodeWithLogo
