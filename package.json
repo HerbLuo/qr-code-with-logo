@@ -36,7 +36,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.3",
-    "babel-plugin-kotlish-also": "^1.0.4",
+    "babel-plugin-kotlish-also": "^1.0.5",
     "babel-preset-es2015-rollup": "^3.0.0",
     "rollup": "^0.56.2",
     "rollup-plugin-babel": "^3.0.3",
