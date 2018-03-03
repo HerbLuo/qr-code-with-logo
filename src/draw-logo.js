@@ -39,15 +39,17 @@ export const drawLogo = ({
   // logo
   const image = new Image()
   if (crossOrigin || logoRadius) {
-    image.setAttribute('crossOrigin', 'Anonymous')
+    image.setAttribute('crossOrigin', crossOrigin || 'Anonymous')
   }
   image.src = logoSrc
 
-  const drawLogoWithImage = (image) => () => {
+  // 使用image绘制可以避免某些跨域情况
+  const drawLogoWithImage = (image) => {
     ctx.drawImage(image, logoXY, logoXY, logoWidth, logoWidth)
   }
 
-  const drawLogoWithCanvas = (image) => () => {
+  // 使用canvas绘制以获得更多的功能
+  const drawLogoWithCanvas = (image) => {
     const canvasImage = document.createElement('canvas')
     canvasImage.width = logoXY + logoWidth
     canvasImage.height = logoXY + logoWidth
@@ -58,8 +60,13 @@ export const drawLogo = ({
     ctx.fill()
   }
 
+  return new Promise(((resolve, reject) => {
+    image.onload = () => {
+      logoRadius ? drawLogoWithCanvas(image) : drawLogoWithImage(image)
+      resolve()
+    }
+  }))
   // 将 logo绘制到 canvas上
-  image.onload = logoRadius ? drawLogoWithCanvas(image) : drawLogoWithImage(image)
 }
 
 // copy来的方法，用于绘制圆角
