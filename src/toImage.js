@@ -14,9 +14,31 @@ export const toImage = (options) => {
     .then(() => {
       const {
         image = new Image(),
+        downloadName = 'qr-code'
+      } = options
+      let {
         download
       } = options
-      image.src = canvas.toDataURL('image/png')
+
+      image.src = canvas.toDataURL()
+
+      if (!download) {
+        return
+      }
+      download = Promise.resolve(download)
+      return download.then(() => {
+        saveImage(image, downloadName)
+      })
     })
-    .catch(it => console.error(it))
+}
+
+const saveImage = (image, name) => {
+  const dataURL = image.src
+
+  const link = document.createElement("a")
+  link.download = name;
+  link.href = dataURL;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }

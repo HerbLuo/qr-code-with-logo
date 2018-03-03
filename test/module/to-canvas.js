@@ -77,5 +77,5 @@ const body = document.getElementsByTagName('body')[0]
 body.appendChild(document.createElement('div').also(item => {
   item.style.backgroundColor = 'rgb(210, 210, 210)'
   item.style.height = '1px'
-  item.style.marginTop = '18px'
+  item.style.margin = '18px 0'
 }))
