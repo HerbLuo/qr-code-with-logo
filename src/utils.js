@@ -17,3 +17,7 @@ export const promisify = (f) => {
     })
   }
 }
+
+export function isString (o) {
+  return typeof o === 'string'
+}

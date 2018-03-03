@@ -4,31 +4,11 @@
  * change logs:
  * 2018/1/24 herbluo created
  */
-import {drawLogo} from './draw-logo'
-import {renderQrCode} from './draw-canvas'
-
-const getCanvasOfQrCodeWithLogo = (options) => {
-  return renderQrCode(options)
-    .then(() => options)
-    .then(drawLogo)
-}
-
-const toImage = (options) => {
-  const canvas = document.createElement('canvas')
-  options.canvas = canvas
-  return getCanvasOfQrCodeWithLogo(options)
-    .then(() => {
-      const {
-        image = new Image(),
-        download
-      } = options
-      image.src = canvas.toDataURL('image/png')
-      console.log(canvas)
-    })
-}
+import { toCanvas } from './toCanvas'
+import { toImage } from './toImage'
 
 const QrCodeWithLogo = {
-  toCanvas: getCanvasOfQrCodeWithLogo,
+  toCanvas,
   toImage
 }
 export default QrCodeWithLogo
