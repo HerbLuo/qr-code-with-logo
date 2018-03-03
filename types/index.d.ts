@@ -15,15 +15,28 @@ interface NodeQrCodeOptions {
   }
 }
 
-interface Config {
-  canvas: Element;
+interface BaseOptions {
   content: string;
   width?: number;
-  nodeQrCodeOptions: NodeQrCodeOptions | object;
+  nodeQrCodeOptions?: NodeQrCodeOptions | object;
   logo?: string | Logo
 }
 
-interface QrCodeWithLogo {
-  toCanvas(config: Config): Promise
+interface CanvasOptions {
+  canvas: Element;
 }
+
+interface ImageOptions {
+  image?: Element;
+  download?: boolean | Promise;
+  downloadName?: string;
+}
+
+interface IQrCodeWithLogo {
+  toCanvas(config: BaseOptions & CanvasOptions): Promise,
+  toImage(config: BaseOptions & ImageOptions): Promise
+}
+
+const QrCodeWithLogo: IQrCodeWithLogo;
+
 export default QrCodeWithLogo
