@@ -28,7 +28,7 @@ interface CanvasOptions {
 
 interface ImageOptions {
   image?: Element;
-  download?: boolean | Promise;
+  download?: boolean | Function;
   downloadName?: string;
 }
 

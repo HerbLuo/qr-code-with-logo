@@ -39,7 +39,7 @@ export const drawLogo = ({
   // logo
   const image = new Image()
   if (crossOrigin || logoRadius) {
-    image.setAttribute('crossOrigin', crossOrigin || 'Anonymous')
+    image.setAttribute('crossOrigin', crossOrigin || 'anonymous')
   }
   image.src = logoSrc
 
@@ -60,13 +60,13 @@ export const drawLogo = ({
     ctx.fill()
   }
 
+  // 将 logo绘制到 canvas上
   return new Promise(((resolve, reject) => {
     image.onload = () => {
       logoRadius ? drawLogoWithCanvas(image) : drawLogoWithImage(image)
       resolve()
     }
   }))
-  // 将 logo绘制到 canvas上
 }
 
 // copy来的方法，用于绘制圆角

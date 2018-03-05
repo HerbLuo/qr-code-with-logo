@@ -1,5 +1,5 @@
 import { toCanvas } from './toCanvas'
-import { isString } from './utils'
+import {isFunction, isString} from './utils'
 
 export const toImage = (options) => {
   const canvas = document.createElement('canvas')
@@ -22,13 +22,15 @@ export const toImage = (options) => {
 
       image.src = canvas.toDataURL()
 
-      if (!download) {
+      if (download !== true && !isFunction(download)) {
         return
       }
-      download = Promise.resolve(download)
-      return download.then(() => {
+      download = download === true ? (start) => start() : download
+
+      const startDownload = () => {
         saveImage(image, downloadName)
-      })
+      }
+      download(startDownload)
     })
 }
 
@@ -36,9 +38,9 @@ const saveImage = (image, name) => {
   const dataURL = image.src
 
   const link = document.createElement("a")
-  link.download = name;
-  link.href = dataURL;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  link.download = name
+  link.href = dataURL
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
 }

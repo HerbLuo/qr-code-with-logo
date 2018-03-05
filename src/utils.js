@@ -18,6 +18,14 @@ export const promisify = (f) => {
   }
 }
 
+export function isFunction (o) {
+  return typeof o === 'function'
+}
+
 export function isString (o) {
   return typeof o === 'string'
+}
+
+export function isImageDom (o) {
+  return o && ['IMAGE', 'IMG'].includes(o.tagName)
 }

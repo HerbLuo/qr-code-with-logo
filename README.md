@@ -16,7 +16,7 @@ ___
 ___
 
 #### 二、使用方法：
-##### 1.npm:
+##### 1.`npm`:
 ```bash
 npm i --save qr-code-with-logo
 ```
@@ -87,10 +87,10 @@ Type: `string`
 
 **`width`**  
 
-Type: `number` 
+Type: `number`  
 Default: `0` 
 
-可选，二维码的宽度  
+可选，二维码的宽度(默认会随二维码内容的长度自动调整大小)  
 
 
 **`logo`**  
