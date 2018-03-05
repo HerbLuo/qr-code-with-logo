@@ -9,7 +9,7 @@
   "main": "lib/index.common.js",
   "module": "lib/index.esm.js",
   "unpkg": "lib/index.js",
-  "typings": "types/index.ts",
+  "typings": "types/index.d.ts",
   "files": [
     "lib",
     "types"

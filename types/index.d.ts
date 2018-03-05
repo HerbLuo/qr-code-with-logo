@@ -37,6 +37,6 @@ interface IQrCodeWithLogo {
   toImage(config: BaseOptions & ImageOptions): Promise
 }
 
-const QrCodeWithLogo: IQrCodeWithLogo;
+declare const QrCodeWithLogo: IQrCodeWithLogo;
 
 export default QrCodeWithLogo
