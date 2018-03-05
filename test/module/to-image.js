@@ -1,13 +1,13 @@
 import QrCodeWithLogo from '../../lib' // 注意此行不要直接复制，应使用下一行
 // import QrCodeWithLogo from 'qr-code-with-logo'
-import { pSingle } from 'p-single'
+import {pSingle} from 'p-single'
 import Promise from 'es6-promise'
 
 if (typeof window.Promise === 'undefined') {
   window.Promise = Promise
 }
 
-const body = document.getElementsByTagName('body')[0]
+const body = document.body
 
 // 普通
 {
@@ -20,13 +20,13 @@ const body = document.getElementsByTagName('body')[0]
       color: {
         dark: '#ff4538',
         light: '#d2ffdb'
-      },
+      }
     },
     logo: {
       src: 'http://closx-shop.oss-cn-qingdao.aliyuncs.com/images/19a4fefb578960a123aa813b28394cb1828162b8.jpg',
       logoRadius: 8,
       borderColor: '#d2ffdb'
-    },
+    }
   })
   body.appendChild(image)
 }
@@ -54,8 +54,8 @@ const body = document.getElementsByTagName('body')[0]
       width: 1080,
       logo: {
         src: 'http://closx-shop.oss-cn-qingdao.aliyuncs.com/images/19a4fefb578960a123aa813b28394cb1828162b8.jpg',
-        logoRadius: 8,
-      },
+        logoRadius: 8
+      }
     })
       .then(() => new Promise(resolve => void setTimeout(resolve, 100)))
       .then(() => {
@@ -67,23 +67,80 @@ const body = document.getElementsByTagName('body')[0]
 // 可下载
 {
   const image = new Image()
+  let startDownload
   QrCodeWithLogo.toImage({
     image,
     content: 'http://blog.cloudself.cn',
     width: 380,
+    download: (_startDownload) => {
+      startDownload = _startDownload
+    },
     nodeQrCodeOptions: {
       color: {
         dark: '#ff4538',
         light: '#d2ffdb'
-      },
+      }
     },
     logo: {
       src: 'http://closx-shop.oss-cn-qingdao.aliyuncs.com/images/19a4fefb578960a123aa813b28394cb1828162b8.jpg',
       logoRadius: 8,
       borderColor: '#d2ffdb'
-    },
-  })
-  body.appendChild(image)
+    }
+  }).catch(e => console.error(e))
+
+  const div = document.createElement('div')
+  div.style.display = 'inline-block'
+  div.style.position = 'relative'
+
+  // 悬浮下载层
+  const hover = document.createElement('div')
+  hover.style.position = 'absolute'
+  hover.style.top = '0'
+  hover.style.left = '0'
+  hover.style.width = '380px'
+  hover.style.height = '380px'
+  hover.style.display = 'flex'
+  hover.style.justifyContent = 'center'
+  hover.style.alignItems = 'center'
+  hover.style.cursor = 'pointer'
+  hover.innerHTML = `
+  <button class="-download-qr-code">点击下载该二维码</button>
+  `
+  const style = document.createElement('style')
+  const styleStr = `
+  .-download-qr-code {
+    cursor: pointer;
+    border: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    outline: none;
+    background-color: #fffffff5
+  }
+  .-download-qr-code:hover {
+    background-color: #f5f5f5
+  }
+  `
+  style.type = 'text/css'
+  if (style.styleSheet) {
+    style.styleSheet.cssText = styleStr
+  } else {
+    style.innerHTML = styleStr
+  }
+  document.head.appendChild(style)
+
+  // 添加鼠标悬浮显示事件
+  hover.style.display = 'none'
+  div.onmouseover = () => {
+    hover.style.display = 'flex'
+  }
+  div.onmouseout = () => {
+    hover.style.display = 'none'
+  }
+
+  div.appendChild(image)
+  div.appendChild(hover)
+  body.appendChild(div)
 }
 
 body.appendChild(document.createElement('div').also(item => {
