@@ -74,12 +74,12 @@ QrCodeWithLogo.toImage({/* ImageOptions */})
   .then(_ => console.log('success'))
 ```
 
-其中toCanvas的参数为一个对象，它包含特有的属性 [CanvasOptions](#CanvasOptions)，以及公共的属性 [BaseOptions](#BaseOptions)  
+其中toCanvas的参数为一个对象，它包含特有的属性 [CanvasOptions](#1-canvasoptions)，以及公共的属性 [BaseOptions](#3-baseoptions)  
 
-toImage的参数同为一个对象，它包含特有的属性 [ImageOptions](#ImageOptions)，以及公共的属性 [BaseOptions](#BaseOptions)  
+toImage的参数同为一个对象，它包含特有的属性 [ImageOptions](#2-imageoptions)，以及公共的属性 [BaseOptions](#3-baseoptions)  
 
 
-##### CanvasOptions
+##### 1. CanvasOptions
 
 **`canvas`**  
 
@@ -88,7 +88,7 @@ Type: `Element`
 配置dom节点，只允许为`<canvas>`，不可为`<div>`等  
 
 
-##### ImageOptions
+##### 2. ImageOptions
 
 **`image`**  
 
@@ -96,12 +96,14 @@ Type: `Element`
 
 可选的，配置dom节点，只允许为`<image>`，不可为`<div>`等  
 
+
 **`download`**  
 
 Type: `boolean`  
 Default: `false`  
 
 可选，为true的时候，以文件的形式输出  
+
 
 **`downloadName`**  
 
@@ -111,7 +113,7 @@ Default: `qr-code.png`
 可选，下载时，图片的文件名
 
 
-##### BaseOptions
+##### 3. BaseOptions
 
 **`content`**  
 
