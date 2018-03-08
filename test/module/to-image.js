@@ -94,6 +94,7 @@ const body = document.body
 
   // 悬浮下载层
   const hover = document.createElement('div')
+  hover.className = '-qr-code-download-hover'
   hover.style.position = 'absolute'
   hover.style.top = '0'
   hover.style.left = '0'
@@ -104,11 +105,11 @@ const body = document.body
   hover.style.alignItems = 'center'
   hover.style.cursor = 'pointer'
   hover.innerHTML = `
-  <button class="-download-qr-code">点击下载该二维码</button>
+  <button class="-qr-code-download">点击下载该二维码</button>
   `
   const style = document.createElement('style')
   const styleStr = `
-  .-download-qr-code {
+  .-qr-code-download {
     cursor: pointer;
     border: 0;
     width: 80px;
@@ -117,8 +118,11 @@ const body = document.body
     outline: none;
     background-color: #fffffff5
   }
-  .-download-qr-code:hover {
+  .-qr-code-download:hover {
     background-color: #f5f5f5
+  }
+  .-qr-code-download-hover {
+    background-color: #11111111
   }
   `
   style.type = 'text/css'
@@ -136,6 +140,10 @@ const body = document.body
   }
   div.onmouseout = () => {
     hover.style.display = 'none'
+  }
+
+  hover.onclick = () => {
+    startDownload()
   }
 
   div.appendChild(image)
