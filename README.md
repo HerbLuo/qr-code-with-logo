@@ -83,7 +83,7 @@ toImage的参数同为一个对象，它包含特有的属性 [ImageOptions](#2-
 
 **`canvas`**  
 
-Type: `Element`  
+Type: `DOMElement`  
 
 配置dom节点，只允许为`<canvas>`，不可为`<div>`等  
 
@@ -92,7 +92,7 @@ Type: `Element`
 
 **`image`**  
 
-Type: `Element`  
+Type: `DOMElement`  
 
 可选的，配置dom节点，只允许为`<image>`，不可为`<div>`等  
 
@@ -175,7 +175,7 @@ Type: `string | Logo` `Logo`为js对象
   Type: `number`
   Default: `0.05`
     
-  可选，border的 大小，范围在 `0-1`之间，代表logo在二维码中的比例
+  可选，border的 大小，范围在 `0-1`之间，代表border在二维码中的比例
   与 `logoSize` 共同组成了 logo的大小，他们的关系相当于标准盒模型
   
 * `bgColor`  

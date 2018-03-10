@@ -5,7 +5,7 @@ repackage from [node-qrcode](https://github.com/soldair/node-qrcode)，support l
 
 ___
 
-### 一、Works on
+### Works on
 - on npm，
 - on `<script>`
 - on vue
@@ -37,17 +37,18 @@ QrCodeWithLogo.toCanvas({
 })
 ```
 
-#### `<script>`, [DOWNLOAD](https://raw.githubusercontent.com/HerbLuo/qr-code-with-logo/master/lib/qr-code-with-logo.browser.min.js) js file
+#### Browser
+download [qr-code-with-logo.browser.min.js](https://raw.githubusercontent.com/HerbLuo/qr-code-with-logo/master/lib/qr-code-with-logo.browser.min.js)  
 ```html
 <canvas id="canvas"></canvas>
 
-<!-- 有对 promise的依赖，如不考虑兼容，可尝试删除该依赖 -->
+<!-- dependent on es6 promise -->
 <script src="//www.promisejs.org/polyfills/promise-6.1.0.js"></script>
-<!-- 将上方下载的文件放置于js文件夹下 -->
+<!-- put the js file to js folder -->
 <script src="./js/qr-code-with-logo.browser.min.js"></script>
 <script>
   QrCodeWithLogo.toCanvas({
-    canvas: document.getElementById('canvas'), // 换成你的canvas节点
+    canvas: document.getElementById('canvas'), // use your canvas node to replace it
     content: 'http://blog.cloudself.cn/',
     width: 380,
     logo: {
@@ -59,39 +60,38 @@ QrCodeWithLogo.toCanvas({
 
 ### API  
 
-Canvas format
+**Canvas format**
 ```javascript
 QrCodeWithLogo.toCanvas({/* CanvasOptions */})
   .then(_ => console.log('success'))
 ```
 
-or Image format, but it is also based on canvas  
+the options of `toCanvas` is an object, it includes special options [CanvasOptions](#1-canvasoptions), and common options [BaseOptions](#3-baseoptions).  
+
+**Image format**, and it is based on canvas too  
 ```javascript
 QrCodeWithLogo.toImage({/* ImageOptions */})
   .then(_ => console.log('success'))
 ```
 
-其中toCanvas的参数为一个对象，它包含特有的属性 [CanvasOptions](#1-canvasoptions)，以及公共的属性 [BaseOptions](#3-baseoptions)  
-
-toImage的参数同为一个对象，它包含特有的属性 [ImageOptions](#2-imageoptions)，以及公共的属性 [BaseOptions](#3-baseoptions)  
-
+the options of `toImage` is an object, it includes special options [ImageOptions](#2-imageoptions), and common options [BaseOptions](#3-baseoptions).  
 
 ##### 1. CanvasOptions
 
 **`canvas`**  
 
-Type: `Element`  
+Type: `DOMElement`  
 
-配置dom节点，只允许为`<canvas>`，不可为`<div>`等  
+Canvas where to draw QR Code.  
 
 
 ##### 2. ImageOptions
 
 **`image`**  
 
-Type: `Element`  
+Type: `DOMElement`  
 
-可选的，配置dom节点，只允许为`<image>`，不可为`<div>`等  
+Optional, image where to draw QR Code, it must be a `<image>`.  
 
 
 **`download`**  
@@ -99,7 +99,7 @@ Type: `Element`
 Type: `boolean`  
 Default: `false`  
 
-可选，为true的时候，以文件的形式输出  
+Optional, specify downloading image immediately.   
 
 
 **`downloadName`**  
@@ -107,7 +107,7 @@ Default: `false`
 Type: `string`  
 Default: `qr-code.png`  
 
-可选，下载时，图片的文件名
+Optional, the png-file's name of QR code.
 
 
 ##### 3. BaseOptions
@@ -116,7 +116,7 @@ Default: `qr-code.png`
 
 Type: `string`  
 
-二维码的内容  
+Content text of QR code.  
 
 
 **`width`**  
@@ -124,56 +124,70 @@ Type: `string`
 Type: `number`  
 Default: `0` 
 
-可选，二维码的宽度(默认会随二维码内容的长度自动调整大小)  
+Optional, width of QR code (will automatic size by default).  
 
 
 **`logo`**  
 
-Type: `string | Logo` `Logo`为js对象
+Type: `string | Logo` Note: `Logo` is an object
 
-可选，可以为字符串（代表src），也可以为对象，其中Logo对象的具体属性有  
+Optional, logo src or the [Logo Options](#logo-options).  
+  
+  
+**`nodeQrCodeOptions`**  
+
+Type: `NodeQrCodeOptions`  
+
+Optional, this project is based on `node-qrcode`, and compatible with [node-qrcode options](https://github.com/soldair/node-qrcode#qr-code-options), 
+there is an excerpt commonly used options [excerpts of node-qrcode options](#excerpts-of-node-qrcode-options).
+
+
+
+
+###### Logo Options
 
 * `src`  
 
   Type: `string`  
   
-  Logo地址，当存在跨域时，该二维码（canvas）无法 toDataURL，亦无法使用JS转换成 `image`
+  Src of logo image.  
+  Note: If the image is storing in a foreign origin, the canvas can not toDataURL before enable CORS for your image.   
   
 * `crossOrigin`  
 
   Type: `string`  
   Default: `'Anonymous'`
   
-  可选，一般不必修改，默认为 'Anonymous'  
+  Optional, usually do do need to modify.  
   
 * `logoRadius`  
 
   Type: `number`
     
-  可选，logo的 radius，如果配置了它，存在跨域时，Logo可能会加载失败
+  Optional, radius of the logo, it may lead the logo to fail to load.  
   
 * `logoSize`  
 
   Type: `number`
   Default: `0.15`
     
-  可选，logo的 大小，范围在 `0-1`之间，代表logo在二维码中的比例
-  与 `borderSize` 共同组成了 logo的大小，他们的关系相当于标准盒模型  
+  Optional, size of logo, the value is between `0` and `1` indicating the proportion of logo in the QR code.  
+  The relation of `logoSize` and `borderSize` just like `content-box`.  
     
 * `borderRadius`  
 
   Type: `number`
   Default: `8`
  
-  可选，logo的边框的 radius
+  Optional, radius of logo's border.  
   
 * `borderSize`  
 
   Type: `number`
   Default: `0.05`
     
-  可选，border的 大小，范围在 `0-1`之间，代表logo在二维码中的比例
-  与 `logoSize` 共同组成了 logo的大小，他们的关系相当于标准盒模型
+  Optional, size of logo, the value is between `0` and `1` indicating the proportion of border in the QR code.  
+  The relation of `logoSize` and `borderSize` just like `content-box`.  
   
 * `bgColor`  
 
@@ -181,44 +195,41 @@ Type: `string | Logo` `Logo`为js对象
   Type: `string`  
   Default: `'#ffffff'`
   
-  可选，logo的背景色，可以为 'transparent'(透明)   
-  
-  
-**`nodeQrCodeOptions`**  
+  Optional, background color of logo, it can be 'transparent'.  
 
-Type: `NodeQrCodeOptions`  `node-qrcode`的参数，[参见](https://github.com/soldair/node-qrcode#qr-code-options)
 
-可选，本项目基于`node-qrcode`，并对其配置参数兼容，其中常用参数的有
+###### Excerpts of node-qrcode options
 
 * `margin`  
 
   Type: `number`  
   Default: `4`
   
-  可选，二维码的外边框大小，单位是单块二维码的像素  
+  Optional, define how much wide the quiet zone should be.  
   
 * `color.dark`  
 
   Type: `string`  
   Default: `'#000000ff'`  RGBA, IE下仅支持RGB
   
-  可选，二维码的前景色  
+  Optional, color of dark module. Value must be in hex format (RGBA or RGB, the RGBA is not support IE browser).  
+  Note: dark color should always be darker than color.light.  
   
 * `color.light`  
 
   Type: `string`  
   Default: `'#000000ff'`
   
-  可选，二维码的背景色  
+  Optional, color of light module. Value must be in hex format (RGBA or RGB, the RGBA is not support IE browser)  
   
 _____
 
-#### 四：其它
+### Others
 
 _____
 
-1. 如果控制台报错 `“Promise”未定义`  
-   添加如下代码即可
+1. If the console output `"Promise" is undefined`,  
+   add the following code.
    ```javascript
    import Promise from 'es6-promise'
    if (typeof window.Promise === 'undefined') {
