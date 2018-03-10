@@ -1,4 +1,4 @@
-## 带Logo的QrCode(二维码)生成工具  
+## 带Logo的QR Code(二维码)生成工具  
 
 中文 | [English](./README-en.md)
 
