@@ -94,7 +94,7 @@ Canvas where to draw QR Code.
 
 Type: `DOMElement`  
 
-Optional, image where to draw QR Code, it must be a `<image>`.  
+Optional, image where to draw QR Code, it must be an `<image>`.  
 
 
 **`download`**  
@@ -127,7 +127,7 @@ Content text of QR code.
 Type: `number`  
 Default: `0` 
 
-Optional, width of QR code (will automatic size by default).  
+Optional, width of QR code (automatic size by default).  
 
 
 **`logo`**  
