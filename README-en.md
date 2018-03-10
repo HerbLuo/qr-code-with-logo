@@ -1,4 +1,7 @@
 ## A tool for generating QR code with logo   
+
+[中文](./README.md) | English
+
 repackage from [node-qrcode](https://github.com/soldair/node-qrcode)，support logo and size adjustment
 
 ![Example Picture](https://raw.githubusercontent.com/HerbLuo/qr-code-with-logo/master/qr-code-with-logo-screenshot-v2.png)

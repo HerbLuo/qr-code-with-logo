@@ -1,4 +1,7 @@
 ## 带Logo的QrCode(二维码)生成工具  
+
+中文 | [English](./README-en.md)
+
 对[node-qrcode](https://github.com/soldair/node-qrcode)的再封装，支持Logo，支持调整大小
 
 ![Example Picture](https://raw.githubusercontent.com/HerbLuo/qr-code-with-logo/master/qr-code-with-logo-screenshot-v2.png)
