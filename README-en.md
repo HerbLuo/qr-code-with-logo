@@ -213,9 +213,9 @@ there is an excerpt commonly used options [excerpts of node-qrcode options](#exc
 * `color.dark`  
 
   Type: `string`  
-  Default: `'#000000ff'`  RGBA, IE下仅支持RGB
+  Default: `'#000000ff'`  
   
-  Optional, color of dark module. Value must be in hex format (RGBA or RGB, the RGBA is not support IE browser).  
+  Optional, color of dark module. Value must be in hex format (RGBA or RGB, the RGBA is not support on IE browser).  
   Note: dark color should always be darker than color.light.  
   
 * `color.light`  
@@ -223,7 +223,7 @@ there is an excerpt commonly used options [excerpts of node-qrcode options](#exc
   Type: `string`  
   Default: `'#000000ff'`
   
-  Optional, color of light module. Value must be in hex format (RGBA or RGB, the RGBA is not support IE browser)  
+  Optional, color of light module. Value must be in hex format (RGBA or RGB, the RGBA is not support on IE browser)  
   
 _____
 
