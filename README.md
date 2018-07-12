@@ -32,10 +32,10 @@ document.getElementsByTagName('body')[0].appendChild(canvas)
 
 QrCodeWithLogo.toCanvas({
   canvas: myCanvas,
-  content: 'http://cdn.blog.cloudself.cn',
+  content: 'https://cdn.blog.cloudself.cn',
   width: 380,
   logo: {
-    src: 'http://cdn.blog.cloudself.cn/images/avatar.png',
+    src: 'https://cdn.blog.cloudself.cn/images/avatar.png',
     radius: 8
   }
 })
@@ -53,10 +53,10 @@ QrCodeWithLogo.toCanvas({
 <script>
   QrCodeWithLogo.toCanvas({
     canvas: document.getElementById('canvas'), // 换成你的canvas节点
-    content: 'http://cdn.blog.cloudself.cn/',
+    content: 'https://cdn.blog.cloudself.cn/',
     width: 380,
     logo: {
-      src: 'http://cdn.blog.cloudself.cn/images/avatar.png',
+      src: 'https://cdn.blog.cloudself.cn/images/avatar.png',
     }
   })
 </script>
