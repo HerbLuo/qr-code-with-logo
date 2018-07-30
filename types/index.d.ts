@@ -33,8 +33,8 @@ interface ImageOptions {
 }
 
 interface IQrCodeWithLogo {
-  toCanvas(config: BaseOptions & CanvasOptions): Promise,
-  toImage(config: BaseOptions & ImageOptions): Promise
+  toCanvas(config: BaseOptions & CanvasOptions): Promise<any>,
+  toImage(config: BaseOptions & ImageOptions): Promise<any>
 }
 
 declare const QrCodeWithLogo: IQrCodeWithLogo;
