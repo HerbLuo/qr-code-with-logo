@@ -20,10 +20,10 @@ module.exports = {
   },
   devServer: {
     hot: false,
-    host: '0.0.0.0',
+    host: '127.0.0.1',
     port: '8097',
     open: true,
     publicPath: '/test/module',
-    openPage: '/test/module',
+    openPage: 'test/module',
   },
 }
