@@ -13,7 +13,7 @@ const body = document.getElementsByTagName('body')[0]
   const canvas = document.createElement('canvas')
   QrCodeWithLogo.toCanvas({
     canvas,
-    content: 'http://blog.cloudself.cn',
+    content: 'http://cdn.blog.cloudself.cn',
     width: 380,
     logo: {
       src: 'http://closx-shop.oss-cn-qingdao.aliyuncs.com/images/19a4fefb578960a123aa813b28394cb1828162b8.jpg',

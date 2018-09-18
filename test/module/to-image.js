@@ -14,7 +14,7 @@ const body = document.body
   const image = new Image()
   QrCodeWithLogo.toImage({
     image,
-    content: 'http://blog.cloudself.cn',
+    content: 'http://cdn.blog.cloudself.cn',
     width: 380,
     nodeQrCodeOptions: {
       color: {
