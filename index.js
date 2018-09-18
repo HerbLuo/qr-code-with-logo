@@ -1,7 +1,4 @@
 /**
- *
- * index
- * change logs:
- * 2018/2/28 herbluo created
+ * qr-code-with-logo
  */
 export {default} from './src/index'
