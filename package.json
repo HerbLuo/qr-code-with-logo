@@ -1,6 +1,6 @@
 {
   "name": "qr-code-with-logo",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "qrCode with logo (image), 无jQuery依赖, 自由调整大小",
   "repository": {
     "type": "git",
