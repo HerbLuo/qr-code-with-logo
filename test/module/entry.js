@@ -6,3 +6,4 @@
  */
 import './to-canvas'
 import './to-image'
+// import './local-image'

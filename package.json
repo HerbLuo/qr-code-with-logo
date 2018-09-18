@@ -17,7 +17,7 @@
   "scripts": {
     "dist:dev": "rollup --watch -c ./rollup.config.js",
     "dist": "rollup -c ./rollup.config.js",
-    "test:dev": "webpack-dev-server --config test/module/webpack.conf.js --mode development",
+    "test:dev": "webpack-dev-server --config test/module/webpack.dev.conf.js --mode development",
     "publish2npm": "npm run dist && npm publish"
   },
   "keywords": [

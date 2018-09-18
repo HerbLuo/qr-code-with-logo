@@ -5,6 +5,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
+    publicPath: '/test/module'
   },
   resolve: {
     extensions: ['.js'],
@@ -20,7 +21,7 @@ module.exports = {
   },
   devServer: {
     hot: false,
-    host: '127.0.0.1',
+    host: 'localhost',
     port: '8097',
     open: true,
     publicPath: '/test/module',
