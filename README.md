@@ -233,5 +233,3 @@ _____
      window.Promise = Promise
    }
    ```
-   
-`document version 0.0.1`

@@ -15,7 +15,7 @@ export default [{
     {
       format: 'cjs',
       exports: 'named',
-      file: 'lib/index.common.js'
+      file: 'lib/index.js'
     },
     {
       format: 'es',
@@ -23,7 +23,7 @@ export default [{
     },
     {
       format: 'umd',
-      file: 'lib/index.js',
+      file: 'lib/index.umd.js',
       name: 'QrCodeWithLogo',
       globals: {
         'qrcode': 'QRCode',
