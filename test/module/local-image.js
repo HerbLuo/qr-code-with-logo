@@ -17,7 +17,7 @@ const body = document.getElementsByTagName('body')[0]
     content: 'http://cdn.blog.cloudself.cn',
     width: 380,
     logo: {
-      src: LocalImage, // 相对于
+      src: LocalImage,
     }
   })
   body.appendChild(canvas)

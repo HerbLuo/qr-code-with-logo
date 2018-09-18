@@ -4,7 +4,7 @@
 
 对[node-qrcode](https://github.com/soldair/node-qrcode)的再封装，支持Logo，支持调整大小
 
-![Example Picture](https://raw.githubusercontent.com/HerbLuo/qr-code-with-logo/master/qr-code-with-logo-screenshot-v2.png)
+![Example Picture](https://raw.githubusercontent.com/HerbLuo/qr-code-with-logo/master/qr-code-with-logo-screenshot-v3.png)
 
 ___
 
@@ -26,6 +26,7 @@ npm i --save qr-code-with-logo
 
 ```javascript
 import QrCodeWithLogo from 'qr-code-with-logo'
+import LocalImage from './Avatar.png'
 
 const myCanvas = document.createElement('canvas')
 document.getElementsByTagName('body')[0].appendChild(canvas)
@@ -35,7 +36,8 @@ QrCodeWithLogo.toCanvas({
   content: 'https://cdn.blog.cloudself.cn',
   width: 380,
   logo: {
-    src: 'https://cdn.blog.cloudself.cn/images/avatar.png',
+    src: LocalImage,
+    // src: 'https://cdn.blog.cloudself.cn/images/avatar.png',
     radius: 8
   }
 })
@@ -143,7 +145,7 @@ Type: `string | Logo` `Logo`为js对象
 
   Type: `string`  
   
-  Logo地址，当存在跨域时，该二维码（canvas）无法 toDataURL，亦无法使用JS转换成 `image`
+  Logo地址，（可以是远程的，也可以是本地的base64图片）当存在跨域时，该二维码（canvas）无法 toDataURL，亦无法使用JS转换成 `image`
   
 * `crossOrigin`  
 
