@@ -17,6 +17,10 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules|lib/
       },
+      {
+        test: /\.(svg|png)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: 'url-loader?limit=4096',
+      }
     ]
   },
   devServer: {

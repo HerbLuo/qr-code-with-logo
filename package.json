@@ -44,6 +44,7 @@
     "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-node-resolve": "^3.0.3",
     "rollup-plugin-uglify": "^3.0.0",
+    "url-loader": "^1.1.1",
     "webpack": "^4.0.0",
     "webpack-cli": "^2.0.9",
     "webpack-dev-server": "^3.0.0"
