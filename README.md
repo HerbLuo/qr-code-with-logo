@@ -204,6 +204,16 @@ Type: `NodeQrCodeOptions`  `node-qrcode`的参数，[参见](https://github.com/
   Default: `4`
   
   可选，二维码的外边框大小，单位是单块二维码的像素  
+
+* `errorCorrectionLevel`
+
+  Type: 'L' | 'M' | 'Q' | 'H'
+  
+  二维码容错率，  
+  默认情况下，  
+  当二维码文本长度大余36字符，采用 M(中)，  
+  小于16，采用 H(高)，  
+  否则采用Q   
   
 * `color.dark`  
 

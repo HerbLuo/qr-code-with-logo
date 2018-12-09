@@ -74,6 +74,29 @@ const body = document.getElementsByTagName('body')[0]
   body.appendChild(canvas)
 }
 
+// 错误级别
+{
+  const content = 'http://cloudself.cn'
+  const canvasHighCL = document.createElement('canvas')
+  QrCodeWithLogo.toCanvas({
+    canvas: canvasHighCL,
+    content,
+    nodeQrCodeOptions: {
+      errorCorrectionLevel: 'L'
+    }
+  })
+  const canvasLowCL = document.createElement('canvas')
+  QrCodeWithLogo.toCanvas({
+    canvas: canvasLowCL,
+    content,
+    nodeQrCodeOptions: {
+      errorCorrectionLevel: 'H'
+    }
+  })
+  body.appendChild(canvasHighCL)
+  body.appendChild(canvasLowCL)
+}
+
 body.appendChild(document.createElement('div').also(item => {
   item.style.backgroundColor = 'rgb(210, 210, 210)'
   item.style.height = '1px'

@@ -1,4 +1,4 @@
-import {promisify} from './utils'
+import { promisify } from './utils'
 import QRCode from 'qrcode'
 
 /**
@@ -15,7 +15,9 @@ export const renderQrCode = ({
   width = 0,
   nodeQrCodeOptions = {}
 }) => {
-  nodeQrCodeOptions.errorCorrectionLevel = getErrorCorrectionLevel(content)
+  // 容错率，默认对内容少的二维码采用高容错率，内容多的二维码采用低容错率
+  nodeQrCodeOptions.errorCorrectionLevel = nodeQrCodeOptions.errorCorrectionLevel || 
+    getErrorCorrectionLevel(content)
 
   return getOriginWidth(content, nodeQrCodeOptions)
     .then(_width => {
