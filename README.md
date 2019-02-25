@@ -29,7 +29,7 @@ import QrCodeWithLogo from 'qr-code-with-logo'
 import LocalImage from './Avatar.png'
 
 const myCanvas = document.createElement('canvas')
-document.getElementsByTagName('body')[0].appendChild(canvas)
+document.body.appendChild(canvas)
 
 QrCodeWithLogo.toCanvas({
   canvas: myCanvas,
