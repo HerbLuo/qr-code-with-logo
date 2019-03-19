@@ -1,6 +1,6 @@
 ## 带Logo的QR Code(二维码)生成工具  
 
-中文 | [English](./README-en.md)
+注：当前版本的[node-qrcode](https://github.com/soldair/node-qrcode)已支持调整大小，大家可以直接往生成的二维码上覆盖Logo即可。
 
 对[node-qrcode](https://github.com/soldair/node-qrcode)的再封装，支持Logo，支持调整大小
 
@@ -29,7 +29,7 @@ import QrCodeWithLogo from 'qr-code-with-logo'
 import LocalImage from './Avatar.png'
 
 const myCanvas = document.createElement('canvas')
-document.getElementsByTagName('body')[0].appendChild(canvas)
+document.body.appendChild(myCanvas)
 
 QrCodeWithLogo.toCanvas({
   canvas: myCanvas,

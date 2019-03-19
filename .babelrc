@@ -1,6 +1,5 @@
 {
-  "presets": [ "es2015-rollup" ],
-  "plugins": [
-    "kotlish-also"
+  "presets": [
+    ["@babel/env", {"modules": false}]
   ]
 }
